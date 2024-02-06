@@ -1,14 +1,12 @@
-//* Info:
-//  Add css moduel struktur
-//  + Fetch compnesnt for the list of products from the API
-//*
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Product from './Product';
+import { useCart } from '../Components/cart/CartContext';
 
 const ProductPage = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
+
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -26,7 +24,13 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
-  return <>{product ? <Product data={product} /> : <p>Loading...</p>}</>;
+  const productId = parseInt(id, 25);
+
+  return (
+    <>
+      <div>{product ? <Product data={product} addToCart={addToCart} id={productId} /> : <p>Loading...</p>}</div>
+    </>
+  );
 };
 
 export default ProductPage;

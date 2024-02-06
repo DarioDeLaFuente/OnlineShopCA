@@ -1,7 +1,6 @@
-import React from 'react';
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
+import Header from '../heade/Header';
 import HeroBanner from '../hero/HeroBanner';
+import Footer from '../footer/Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

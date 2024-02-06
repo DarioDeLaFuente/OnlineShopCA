@@ -1,18 +1,13 @@
-//* Info:
-//  Add css moduel struktur
-// Adjust the number of products per page as needed
-// Fetch a specific range of products based on the page number + fikk the productsPerPage fungjen
-//*
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import styles from '../Components/cardImageProdct/Product.module.css';
+import global from '../Components/global/Container.module.css';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage] = useState(1);
   const productsPerPage = 5;
 
   useEffect(() => {
@@ -32,23 +27,41 @@ const Products = () => {
     fetchProducts();
   }, [currentPage]);
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
+  const calculateDiscount = (product) => {
+    if (product.discountedPrice && product.price && product.discountedPrice < product.price) {
+      return ((product.price - product.discountedPrice) / product.price) * 100;
+    }
+    return null;
   };
 
   return (
-    <Container className="p-3">
-      <h1 className="header">Welcome To</h1>
-      <div className="product-list">
+    <div className={global.container}>
+      <h1 className="header">Products</h1>
+      <div className={styles.productList}>
         {products.map((product) => (
-          <Card key={product.id} style={{ width: '18rem' }}>
-            <Card.Img className="card-image" variant="top" src={product.imageUrl} alt={product.title} />
+          <Card key={product.id} className={styles.cardBody}>
+            <Card.Img className={styles.cardImage} variant="top" src={product.imageUrl} alt={product.title} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <Card.Text>{product.description}</Card.Text>
-              <Card.Text>{product.discountedPrice} discountedPrice</Card.Text>
-              <Card.Text>{product.price} price</Card.Text>
-              <Card.Text>{product.rating} Rating</Card.Text>
+
+              {product.discountedPrice ? (
+                <>
+                  {product.price !== product.discountedPrice ? (
+                    <>
+                      <Card.Text>{`Price: $${product.price}`}</Card.Text>
+                      <Card.Text>{`Discounted Price: $${product.discountedPrice}`}</Card.Text>
+                      <Card.Text>{`Discount: ${calculateDiscount(product).toFixed(2)}%`}</Card.Text>
+                    </>
+                  ) : (
+                    <Card.Text>{`Price: $${product.discountedPrice}`}</Card.Text>
+                  )}
+                </>
+              ) : (
+                <Card.Text>{`Price: $${product.price}`}</Card.Text>
+              )}
+
+              <Card.Text>{`${product.rating} Rating`}</Card.Text>
               <Link to={`/product/${product.id}`}>
                 <Button variant="primary">View Details</Button>
               </Link>
@@ -56,20 +69,7 @@ const Products = () => {
           </Card>
         ))}
       </div>
-      <div className="pagination">
-        <Button
-          variant="outline-primary"
-          disabled={currentPage === 1}
-          onClick={() => handlePageChange(currentPage - 1)}
-        >
-          Previous Page
-        </Button>
-        <span className="page-number">Page {currentPage}</span>
-        <Button variant="outline-primary" onClick={() => handlePageChange(currentPage + 1)}>
-          Next Page
-        </Button>
-      </div>
-    </Container>
+    </div>
   );
 };
 

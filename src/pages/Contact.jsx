@@ -1,18 +1,8 @@
-//* Info:
-//  Add css moduel struktur
-// Function to handle form field changes
-// Function to handle form submission
-// Validate form fields
-// If there are validation errors, set errors state
-// If no errors, submit the form (you can handle this part)
-// Function to check if email is valid
-// Simple email validation regex
-//*
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import global from '../Components/global/Container.module.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -66,7 +56,7 @@ const Contact = () => {
   };
 
   return (
-    <Container className="p-3">
+    <Container className={global.container}>
       <h1>Contact Us</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="fullName">

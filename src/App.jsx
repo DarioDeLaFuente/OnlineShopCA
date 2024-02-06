@@ -1,9 +1,3 @@
-//* Info:
-//
-//*
-
-import React from 'react';
-import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './Components/main/Layout';
@@ -12,20 +6,26 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import ProductPage from './pages/ProductPage';
 import NotFound from './pages/NotFound';
+import CheckoutPage from './pages/CheckoutPage';
+import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
+import { CartProvider } from './Components/cart/CartContext';
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="products" element={<Products />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="product/:id" element={<ProductPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="products" element={<Products />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="product/:id" element={<ProductPage />} />
+            <Route path="checkout" element={<CheckoutPage />} />
+            <Route path="checkout-success" element={<CheckoutSuccessPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </CartProvider>
     </Router>
   );
 }

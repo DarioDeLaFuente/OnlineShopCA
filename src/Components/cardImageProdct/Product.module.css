@@ -1,0 +1,21 @@
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cardBody {
+  width: 18rem;
+}
+.cardImageProdct {
+  height: 700px;
+  object-fit: cover;
+}
+.cardImage {
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardBodySingel {
+  width: auto;
+}
