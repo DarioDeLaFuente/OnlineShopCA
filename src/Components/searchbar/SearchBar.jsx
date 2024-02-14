@@ -1,6 +1,8 @@
+import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styles from '../searchbar/SearchBar.module.css';
 
 const SearchBar = ({ products }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,32 +23,23 @@ const SearchBar = ({ products }) => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className={styles.layoutBody}>
       <input
         type="text"
         placeholder="Search for products..."
         value={searchQuery}
         onChange={handleInputChange}
-        style={{ padding: '5px', marginRight: '5px' }}
+        className={styles.layoutInput}
       />
 
       {searchResults.length > 0 && (
         <ul
-          style={{
-            listStyleType: 'none',
-            padding: 0,
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            backgroundColor: '#fff',
-            border: '1px solid #ccc',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-            zIndex: 10,
-          }}
+        className={styles.layoutUl}
         >
           {searchResults.map((result) => (
             <li key={result.id} style={{ margin: '5px' }}>
-              <Link to={`/product/${result.id}`} style={{ textDecoration: 'none', color: 'blue', cursor: 'pointer' }}>
+              <Link to={`/product/${result.id}`} 
+              className={styles.layoutLink}>
                 {result.title} - ${result.price}
               </Link>
             </li>
