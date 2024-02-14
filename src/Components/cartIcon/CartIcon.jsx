@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './CartIcon.module.css';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -59,7 +60,9 @@ const Home = () => {
                 )}
                 <Card.Text>{`${product.rating} Rating`}</Card.Text>
                 <Link to={`/product/${product.id}`}>
-                  <Button variant="primary">View Details</Button>
+                  <Button data-testid="view-details-button" variant="primary">
+                    View Details
+                  </Button>
                 </Link>
               </Card.Body>
             </Card>

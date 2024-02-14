@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -30,7 +31,7 @@ const Product = ({ data, addToCart }) => {
               {data.discountedPrice < data.price && <Card.Text>{`Discount: ${calculateDiscount()}%`}</Card.Text>}
 
               <Card.Text>{data.rating}</Card.Text>
-              <Button variant="primary" onClick={() => addToCart(data)}>
+              <Button data-testid="view-details-button" variant="primary" onClick={() => addToCart(data)}>
                 Add to Cart
               </Button>
             </Card.Body>

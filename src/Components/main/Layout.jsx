@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../heade/Header';
 import HeroBanner from '../hero/HeroBanner';
 import Footer from '../footer/Footer';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -17,6 +18,8 @@ const Contact = () => {
     email: '',
     body: '',
   });
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,12 +50,17 @@ const Contact = () => {
       setFormErrors(errors);
     } else {
       console.log('Form submitted:', formData);
+      setShowPopup(true);
     }
   };
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
   };
 
   return (
@@ -116,6 +124,17 @@ const Contact = () => {
           Submit
         </Button>
       </Form>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="close" onClick={handleClosePopup}>
+              &times;
+            </span>
+            <p>Form data:</p>
+            <pre>{JSON.stringify(formData, null, 2)}</pre>
+          </div>
+        </div>
+      )}
     </Container>
   );
 };

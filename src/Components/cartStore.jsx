@@ -6,6 +6,7 @@ const useCartStore = create((set) => ({
   removeFromCart: (productId) => set((state) => ({ cart: state.cart.filter((item) => item.id !== productId) })),
   clearCart: () => set({ cart: [] }),
   getTotal: () => set.getState().cart.reduce((total, item) => total + item.price, 0),
+  getTotal: () => set.getState().cart.reduce((total, item) => total + item.discountedPrice, 0),
 }));
 
 export default useCartStore;
