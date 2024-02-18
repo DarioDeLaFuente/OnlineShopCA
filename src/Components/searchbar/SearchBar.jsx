@@ -18,7 +18,6 @@ const SearchBar = ({ products }) => {
     }
 
     const filteredResults = products ? products.filter((product) => product.title.toLowerCase().includes(query)) : [];
-
     setSearchResults(filteredResults);
   };
 
@@ -33,13 +32,10 @@ const SearchBar = ({ products }) => {
       />
 
       {searchResults.length > 0 && (
-        <ul
-        className={styles.layoutUl}
-        >
+        <ul className={styles.layoutUl}>
           {searchResults.map((result) => (
-            <li key={result.id} style={{ margin: '5px' }}>
-              <Link to={`/product/${result.id}`} 
-              className={styles.layoutLink}>
+            <li key={result.id} className={styles.layoutList}>
+              <Link to={`/product/${result.id}`} className={styles.layoutLink}>
                 {result.title} - ${result.price}
               </Link>
             </li>

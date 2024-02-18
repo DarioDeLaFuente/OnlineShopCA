@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import CartIcon from '../cartIcon/CartIcon';
 import SearchBar from '../searchbar/SearchBar';
+import styles from '../nav/Nav.module.css';
 
 const Nave = ({ products }) => {
   const navigate = useNavigate();
@@ -18,16 +19,16 @@ const Nave = ({ products }) => {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand onClick={handleHomeClick} style={{ cursor: 'pointer' }}>
+          <Navbar.Brand onClick={handleHomeClick} className={styles.layoutBrand}>
             The Online Shop
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-              <Link className="p-2" to="/products">
+            <Nav className="me-auto my-2 my-lg-0 w-100" navbarScroll>
+              <Link className="p-2 text-decoration-none" to="/products">
                 Products
               </Link>
-              <Link className="p-2" to="/contact">
+              <Link className="p-2 text-decoration-none" to="/contact">
                 Contact
               </Link>
             </Nav>

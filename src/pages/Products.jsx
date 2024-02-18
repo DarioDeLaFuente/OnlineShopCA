@@ -18,7 +18,7 @@ const Products = () => {
           `https://api.noroff.dev/api/v1/online-shop/?_page=${currentPage}&_limit=${productsPerPage}`,
         );
         const data = await response.json();
-        console.log('data', data);
+        //console.log('data', data);
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
