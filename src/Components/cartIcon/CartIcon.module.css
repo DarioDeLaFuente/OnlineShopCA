@@ -1,0 +1,17 @@
+.carticon {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+.badge {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2em 0.5em;
+  position: absolute;
+  top: -0.2em;
+  right: -0.2em;
+}
