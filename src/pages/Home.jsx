@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from '../Components/cardImageProdct/Product.module.css';
-import global from '../Components/global/Container.module.css';
 import button from '../Components/button/Button.module.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -35,45 +36,57 @@ const Home = () => {
 
   return (
     <>
-      <div className={global.container}>
-        <div className={styles.productList}>
-          {products.slice(0, 8).map((product) => (
+      <Row>
+        {products.slice(0, 8).map((product) => (
+          <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
             <Card key={product.id} className={styles.cardBody}>
               <Card.Img className={styles.cardImage} variant="top" src={product.imageUrl} alt={product.title} />
               <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>{product.description}</Card.Text>
-                {product.discountedPrice ? (
-                  <>
-                    {product.price !== product.discountedPrice ? (
-                      <>
-                        <Card.Text>{`Price: $${product.price}`}</Card.Text>
-                        <Card.Text>{`Discounted Price: $${product.discountedPrice}`}</Card.Text>
-                        <Card.Text>{`Discount: ${calculateDiscount(product).toFixed(2)}%`}</Card.Text>
-                      </>
-                    ) : (
-                      <Card.Text>{`Price: $${product.discountedPrice}`}</Card.Text>
-                    )}
-                  </>
-                ) : (
-                  <Card.Text>{`Price: $${product.price}`}</Card.Text>
-                )}
-                <Card.Text>{`${product.rating} Rating`}</Card.Text>
+                <Card.Title className={styles.cardTexBoxs}>{product.title}</Card.Title>
+                <Card.Text className={styles.cardTexBoxs}>{product.description}</Card.Text>
+              </Card.Body>
+              {product.discountedPrice ? (
+                <>
+                  {product.price !== product.discountedPrice ? (
+                    <Card.Body>
+                      <Card.Text className={styles.cardTexBoxs}>{`Price: $${product.price}`}</Card.Text>
+                      <Card.Text
+                        className={styles.cardTexBoxs}
+                      >{`Discounted Price: $${product.discountedPrice}`}</Card.Text>
+                      <Card.Text
+                        className={styles.cardTexBoxs}
+                      >{`Discount: ${calculateDiscount(product).toFixed(2)}%`}</Card.Text>
+                    </Card.Body>
+                  ) : (
+                    <Card.Body>
+                      <Card.Text className={styles.cardTexBoxs}>{`Price: $${product.discountedPrice}`}</Card.Text>
+                    </Card.Body>
+                  )}
+                </>
+              ) : (
+                <Card.Body>
+                  <Card.Text className={styles.cardTexBoxs}>{`Price: $${product.price}`}</Card.Text>
+                </Card.Body>
+              )}
+              <Card.Body>
+                <Card.Text className={styles.cardTexBoxs}>{`${product.rating} Rating`}</Card.Text>
+              </Card.Body>
+              <div className={styles.viewDetailsButton}>
                 <Link to={`/product/${product.id}`}>
                   <Button data-testid="view-details-button" variant="primary">
                     View Details
                   </Button>
                 </Link>
-              </Card.Body>
+              </div>
             </Card>
-          ))}
-        </div>
-        <div className={button.seeMoreButton}>
+          </Col>
+        ))}
+        <div className={button.seeMoreButton} style={{ marginBottom: '80px' }}>
           <Link to="/products">
             <Button variant="primary">See More</Button>
           </Link>
         </div>
-      </div>
+      </Row>
     </>
   );
 };

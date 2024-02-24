@@ -1,6 +1,9 @@
 .footer {
-  margin-top: auto;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
   background-color: #f8f9fa;
   text-align: center;
   padding: 20px;
+  z-index: 1000;
 }

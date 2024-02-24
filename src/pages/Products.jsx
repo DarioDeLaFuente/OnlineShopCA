@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from '../Components/cardImageProdct/Product.module.css';
 import global from '../Components/global/Container.module.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -38,40 +40,53 @@ const Products = () => {
   return (
     <div className={global.container}>
       <h1 className="header">Products</h1>
-      <div className={styles.productList}>
-        {products.map((product) => (
-          <Card key={product.id} className={styles.cardBody}>
-            <Card.Img className={styles.cardImage} variant="top" src={product.imageUrl} alt={product.title} />
-            <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Text>{product.description}</Card.Text>
 
+      <Row style={{ marginBottom: '100px' }}>
+        {products.map((product) => (
+          <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <Card key={product.id} className={styles.cardBody}>
+              <Card.Img className={styles.cardImage} variant="top" src={product.imageUrl} alt={product.title} />
+              <Card.Body>
+                <Card.Title className={styles.cardTexBoxs}>{product.title}</Card.Title>
+                <Card.Text className={styles.cardTexBoxs}>{product.description}</Card.Text>
+              </Card.Body>
               {product.discountedPrice ? (
                 <>
                   {product.price !== product.discountedPrice ? (
-                    <>
-                      <Card.Text>{`Price: $${product.price}`}</Card.Text>
-                      <Card.Text>{`Discounted Price: $${product.discountedPrice}`}</Card.Text>
-                      <Card.Text>{`Discount: ${calculateDiscount(product).toFixed(2)}%`}</Card.Text>
-                    </>
+                    <Card.Body>
+                      <Card.Text className={styles.cardTexBoxs}>{`Price: $${product.price}`}</Card.Text>
+                      <Card.Text
+                        className={styles.cardTexBoxs}
+                      >{`Discounted Price: $${product.discountedPrice}`}</Card.Text>
+                      <Card.Text
+                        className={styles.cardTexBoxs}
+                      >{`Discount: ${calculateDiscount(product).toFixed(2)}%`}</Card.Text>
+                    </Card.Body>
                   ) : (
-                    <Card.Text>{`Price: $${product.discountedPrice}`}</Card.Text>
+                    <Card.Body>
+                      <Card.Text className={styles.cardTexBoxs}>{`Price: $${product.discountedPrice}`}</Card.Text>
+                    </Card.Body>
                   )}
                 </>
               ) : (
-                <Card.Text>{`Price: $${product.price}`}</Card.Text>
+                <Card.Body>
+                  <Card.Text className={styles.cardTexBoxs}>{`Price: $${product.price}`}</Card.Text>
+                </Card.Body>
               )}
-
-              <Card.Text>{`${product.rating} Rating`}</Card.Text>
-              <Link to={`/product/${product.id}`}>
-                <Button data-testid="view-details-button" variant="primary">
-                  View Details
-                </Button>
-              </Link>
-            </Card.Body>
-          </Card>
+              <Card.Body>
+                <Card.Text className={styles.cardTexBoxs}>{`${product.rating} Rating`}</Card.Text>
+              </Card.Body>
+              <div className={styles.viewDetailsButton}>
+                <Link to={`/product/${product.id}`}>
+                  <Button data-testid="view-details-button" variant="primary">
+                    View Details
+                  </Button>
+                </Link>
+              </div>
+            </Card>
+          </Col>
         ))}
-      </div>
+      </Row>
     </div>
   );
 };

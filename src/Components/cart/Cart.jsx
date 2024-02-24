@@ -10,7 +10,7 @@ const Cart = ({ cart }) => {
         {cart && cart.length > 0 ? (
           cart.map((item, index) => (
             <li key={index}>
-              <Card style={{ width: '18rem' }}>
+              <Card>
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>

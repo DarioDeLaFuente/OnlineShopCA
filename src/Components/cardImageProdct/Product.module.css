@@ -1,11 +1,21 @@
-.productList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
 .cardBody {
-  width: 18rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  height: 37rem;
+}
+.cardTexBoxs {
+  margin: 0px;
+}
+.viewDetailsButton {
+  margin: 10px;
+}
+.cardBodyProdct {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  margin: 15px;
 }
 .cardImageProdct {
   height: 700px;
@@ -14,8 +24,11 @@
 .cardImage {
   height: 200px;
   object-fit: cover;
+  width: 100%;
 }
 
-.cardBodySingel {
-  width: auto;
+@media (max-width: 768px) {
+  .cardBody {
+    width: 100%;
+  }
 }
