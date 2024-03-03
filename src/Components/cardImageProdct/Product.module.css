@@ -2,12 +2,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-wrap;
-  margin-bottom: 5px;
-  height: 37rem;
+  margin-bottom: 2px;
+  height: 100%;
 }
 .cardTexBoxs {
-  margin: 0px;
+  margin: -5px;
 }
+
 .viewDetailsButton {
   margin: 10px;
 }
@@ -15,7 +16,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-wrap;
-  margin: 15px;
+  margin: 10px;
 }
 .cardImageProdct {
   height: 700px;
@@ -28,7 +29,4 @@
 }
 
 @media (max-width: 768px) {
-  .cardBody {
-    width: 100%;
-  }
 }

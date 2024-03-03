@@ -18,7 +18,7 @@ const Product = ({ data, addToCart }) => {
   };
 
   return (
-    <Row style={{ marginBottom: '80px' }}>
+    <Row>
       <Col xs={12}>
         <Card className={styles.cardBodyProdct}>
           <Card.Img className={styles.cardImageProdct} src={data.imageUrl} alt={data.title} />

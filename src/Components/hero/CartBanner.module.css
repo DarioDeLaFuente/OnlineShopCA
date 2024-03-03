@@ -1,4 +1,4 @@
-.heroBanner {
+.cartBanner {
   background-color: #f8f9fa;
   padding: 20px;
   text-align: center;
@@ -6,21 +6,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 54vh;
   margin-bottom: 15px;
 }
 
-.heroTitle {
+.cartTitle {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.heroDescription {
+.cartDescription {
   font-size: 1.5rem;
   margin-bottom: 30px;
 }
 
-.heroButton {
+.cartButton {
   font-size: 1.2rem;
 }

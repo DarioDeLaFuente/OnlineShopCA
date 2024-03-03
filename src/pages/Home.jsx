@@ -38,7 +38,7 @@ const Home = () => {
     <>
       <Row>
         {products.slice(0, 8).map((product) => (
-          <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
+          <Col className="mb-2" key={product.id} xs={12} sm={6} md={4} lg={3}>
             <Card key={product.id} className={styles.cardBody}>
               <Card.Img className={styles.cardImage} variant="top" src={product.imageUrl} alt={product.title} />
               <Card.Body>

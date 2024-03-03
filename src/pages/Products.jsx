@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from '../Components/cardImageProdct/Product.module.css';
-import global from '../Components/global/Container.module.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -38,12 +37,11 @@ const Products = () => {
   };
 
   return (
-    <div className={global.container}>
-      <h1 className="header">Products</h1>
-
-      <Row style={{ marginBottom: '100px' }}>
+    <>
+      <Row>
+        <h1 className="header">Products</h1>
         {products.map((product) => (
-          <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
+          <Col className="mb-2" key={product.id} xs={12} sm={6} md={4} lg={3}>
             <Card key={product.id} className={styles.cardBody}>
               <Card.Img className={styles.cardImage} variant="top" src={product.imageUrl} alt={product.title} />
               <Card.Body>
@@ -87,7 +85,7 @@ const Products = () => {
           </Col>
         ))}
       </Row>
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-.heroBanner {
+.checkoutBanner {
   background-color: #f8f9fa;
   padding: 20px;
   text-align: center;
@@ -6,21 +6,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 54vh;
   margin-bottom: 15px;
 }
 
-.heroTitle {
+.checkoutTitle {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.heroDescription {
+.checkoutDescription {
   font-size: 1.5rem;
   margin-bottom: 30px;
 }
 
-.heroButton {
+.checkoutButton {
   font-size: 1.2rem;
 }
