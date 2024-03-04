@@ -17,7 +17,7 @@ const ContactBanner = () => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className='mt-5 mb-5'>
             <h4 className={styles.contactDescription}>Quick assists Answers is just one click away.</h4>
             <p>Most frequently asked questions:</p>
             <ListGroup>
