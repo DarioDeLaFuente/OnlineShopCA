@@ -1,12 +1,10 @@
 .cartBanner {
-  background-color: #f8f9fa;
   padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 54vh;
   margin-bottom: 15px;
 }
 
