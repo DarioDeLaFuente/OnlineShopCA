@@ -11,13 +11,12 @@ const Layout = () => {
   const isHomePage = location.pathname === '/';
   return (
     <>
-      {' '}
       <Header />
       {isHomePage && <HeroBanner />}
-      <Container>
+      <Container style={{ minHeight: '85vh' }}>
         <Outlet />
       </Container>
-      <Footer />{' '}
+      <Footer />
     </>
   );
 };

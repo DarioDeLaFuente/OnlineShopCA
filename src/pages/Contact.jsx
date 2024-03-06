@@ -93,7 +93,7 @@ const Contact = () => {
           )}
         </Col>
       </Col>
-     
+
       <Col xs={12} md={12} lg={4}>
         <h3>Contact Us</h3>
         <Form onSubmit={handleSubmit}>
@@ -149,13 +149,12 @@ const Contact = () => {
             />
             <Form.Control.Feedback type="invalid">{formErrors.body}</Form.Control.Feedback>
           </Form.Group>
-          <Button className='mt-3' variant="primary" type="submit">
+          <Button className="mt-3" variant="primary" type="submit">
             Submit
           </Button>
         </Form>
       </Col>
-      </Row>
- 
+    </Row>
   );
 };
 
