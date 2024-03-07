@@ -13,7 +13,7 @@ const Layout = () => {
     <>
       <Header />
       {isHomePage && <HeroBanner />}
-      <Container style={{ minHeight: '85vh' }}>
+      <Container style={{ minHeight: '90vh' }}>
         <Outlet />
       </Container>
       <Footer />
