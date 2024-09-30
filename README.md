@@ -1,3 +1,9 @@
+# Auction website JavaScript Frameworks CA
+
+![image](https://profile.dariodelafuente.no/wp-content/uploads/2024/09/screencapture-onlineshopca-netlify-app-2024-09-30-20_05_49.png)
+
+This is a simple overview of the project.
+
 # Description
 
 Course Assignment:
@@ -38,6 +44,10 @@ Available scripts to lint, build, start, or test the project:
 - **Testing:**
 
   - test `npm run test-unit`
+
+
+## Link to the site: 
+This is [onlineshopCA](https://onlineshopca.netlify.app/)
 
 # Setup info 4 React + Vite
 
